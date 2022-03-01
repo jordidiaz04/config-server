@@ -1,0 +1,11 @@
+server:
+  port: 9000
+
+spring:
+  cloud:
+    config:
+      server:
+        bootstrap: false
+        git:
+          clone-on-start: true
+          uri: C:\Proyectos\Spring\config-local
