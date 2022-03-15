@@ -8,65 +8,8 @@ spring:
         bootstrap: false
         git:
           clone-on-start: true
-          uri: git@github.com:jordidiaz04/config-git.git
+          uri: https://jdiaz495@bitbucket.org/jdiaz495/config-git.git
           default-label: master
-          base-dir: config-dir-github
-          ignore-local-ssh-settings: true
-          passphrase: secured
-          private-key: |
-            -----BEGIN RSA PRIVATE KEY-----
-            Proc-Type: 4,ENCRYPTED
-            DEK-Info: AES-128-CBC,799DCEC65C2DABCDFAB0B3A6B3589519
-
-            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
-            -----END RSA PRIVATE KEY-----
-
-            
+          username: jdiaz495
+          password: VnUsE4rDtmPrhLfGCJek
+          base-dir: config-dir-bitbucket
