@@ -12,4 +12,3 @@ spring:
           default-label: master
           username: jdiaz495
           password: VnUsE4rDtmPrhLfGCJek
-          base-dir: config-dir-bitbucket
