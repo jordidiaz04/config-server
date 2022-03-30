@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: config-server
+  name: config-server-app
   labels:
-    app: config-server
+    app: config-server-app
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: config-server
+      app: config-server-app
   template:
     metadata:
       labels:
-        app: config-server
+        app: config-server-app
     spec:
       containers:
-        - name: config-server
-          image: nttdatabootcampacr.azurecr.io/config-server:1.0
+        - name: config-server-app
+          image: jordidiaz495/config-server:1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 7000
-      imagePullSecrets:
-        - name: bootcampsecret
