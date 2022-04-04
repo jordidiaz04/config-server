@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "bootcampcluster-cb8e"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "bootcampcluster-cb8e"
+  template:
+    metadata:
+      labels:
+        app: "bootcampcluster-cb8e"
+    spec:
+      containers:
+        - name: "bootcampcluster-cb8e"
+          image: "nttdatabootcampacr.azurecr.io/bootcampcluster"
+          ports:
+          - containerPort: 7000
