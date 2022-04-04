@@ -36,14 +36,12 @@ jobs:
           docker build "$GITHUB_WORKSPACE/" -f  "Dockerfile" -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }} --label dockerfile-path=Dockerfile
           docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
 
-      # Set the target AKS cluster.
       - uses: azure/aks-set-context@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: ${{ secrets.CLUSTER_NAME }}
           resource-group: ${{ secrets.CLUSTER_RESOURCE_GROUP }}
 
-      # Create namespace if doesn't exist
       - name: Create namespace in AKS
         run: |
           kubectl create namespace ${{ secrets.NAMESPACE }} --dry-run=client -o json | kubectl apply -f -
@@ -59,7 +57,7 @@ jobs:
         with:
           tokenPrefix: '${'
           tokenSuffix: '}'
-          files: '["*.yaml"]'
+          files: '["kubernetes/*.yaml"]'
         env:
           REPOSITORY_NAME: ${{ secrets.REGISTRY_NAME }}
           IMAGE_TAG: ${{ env.IMAGE_TAG }}
