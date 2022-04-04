@@ -74,8 +74,8 @@ jobs:
         with:
           namespace: ${{ secrets.NAMESPACE }}
           manifests: |
-            deployment.yml
-            service.yml
+            kubernetes/deployment.yml
+            kubernetes/service.yml
           images: |
             ${{ secrets.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ env.IMAGE_TAG }}
           imagepullsecrets: |
