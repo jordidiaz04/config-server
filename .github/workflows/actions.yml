@@ -57,7 +57,7 @@ jobs:
         with:
           tokenPrefix: '${'
           tokenSuffix: '}'
-          files: '["kubernetes/*.yaml"]'
+          files: '["kubernetes/*.yml"]'
         env:
           REPOSITORY_NAME: ${{ secrets.REGISTRY_NAME }}
           IMAGE_TAG: ${{ env.IMAGE_TAG }}
