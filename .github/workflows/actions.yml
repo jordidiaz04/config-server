@@ -72,11 +72,11 @@ jobs:
       # Deploy app to AKS
       - uses: azure/k8s-deploy@v1.4
         with:
+          namespace: ${{ secrets.NAMESPACE }}
           manifests: |
-            ${{ github.workspace }}/deployment.yaml
-            ${{ github.workspace }}/service.yaml
+            /deployment.yaml
+            /service.yaml
           images: |
             ${{ secrets.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ env.IMAGE_TAG }}
-          namespace: ${{ secrets.NAMESPACE }}
           imagepullsecrets: |
             bootcamp-secret
