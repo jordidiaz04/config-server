@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: config-server-app
-          image: jordidiaz495/config-server:1.0
+          image: ${REPOSITORY_NAME}/config-server:${IMAGE_TAG}
           imagePullPolicy: Always
           ports:
             - containerPort: 7000
