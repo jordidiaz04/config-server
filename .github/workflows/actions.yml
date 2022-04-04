@@ -49,7 +49,8 @@ jobs:
           resource-group: ${{ secrets.CLUSTER_RESOURCE_GROUP }}
 
       # Create namespace if doesn't exist
-      - run: |
+      - name: Create namespace in AKS
+        run: |
         kubectl create namespace ${{ secrets.NAMESPACE }} --dry-run=client -o json | kubectl apply -f -
 
       - uses: Azure/k8s-create-secret@v1.1
