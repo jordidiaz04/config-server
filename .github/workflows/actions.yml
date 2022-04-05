@@ -48,15 +48,6 @@ jobs:
         run: |
           kubectl create namespace ${{ secrets.NAMESPACE }} --dry-run=client -o json | kubectl apply -f -
 
-      - name: Create image pull secret for ACR
-        uses: Azure/k8s-create-secret@v1.1
-        with:
-          container-registry-url: ${{ secrets.REGISTRY_NAME }}.azurecr.io
-          container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
-          container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-          secret-name: bootcamp-secret
-          namespace: ${{ secrets.NAMESPACE }}
-
       - name: Replace tokens in yaml files
         uses: cschleiden/replace-tokens@v1
         with:
@@ -75,6 +66,4 @@ jobs:
             kubernetes/service.yml
           images: |
             ${{ secrets.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ env.IMAGE_TAG }}
-          imagepullsecrets: |
-            bootcamp-secret
           namespace: ${{ secrets.NAMESPACE }}
