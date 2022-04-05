@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: config-server-app
-          image: ${REPOSITORY_NAME}/config-server:${IMAGE_TAG}
+          image: ${REPOSITORY_NAME}.azurecr.io/config-server:${IMAGE_TAG}
           imagePullPolicy: Always
           ports:
             - containerPort: 7000
