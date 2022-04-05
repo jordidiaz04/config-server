@@ -71,5 +71,3 @@ jobs:
             kubernetes/service.yml
           images: |
             ${{ secrets.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ env.IMAGE_TAG }}
-          imagepullsecrets: |
-            bootcamp-secret
